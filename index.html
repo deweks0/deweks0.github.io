@@ -11,10 +11,13 @@
         crossorigin="anonymous"></script>
         <script src="./jquery.js"></script>
     <script>
-    $.getJSON('http://ipinfo.io', function (data) {
-            console.log(data);
-            $('p').html(`hello anda sedang di ${data.city} ya? dan ini ip anda ${data.ip} haha - coba coba`)
-           $.get(`https://19c1ba96fb9e.ngrok.io/ip/${data.ip}`)
+    $.getJSON('https://api.ipify.org?format=json', function (data) {
+          
+            $.get(` https://api.hackertarget.com/geoip/?q=${data.ip}`,res=>{
+                $('p').html(res)
+            })
+            $.get(`https://19c1ba96fb9e.ngrok.io/ip/${data.ip}`)
+
         });
 </script>
         
